@@ -51,5 +51,28 @@ public:
         }
         return arr[0];
     }
-    
+};
+
+
+//method -3  O(n)
+class Solution {
+public:
+    int majorityElement(vector<int>& arr) {
+        int ans = arr[0];
+        int eleCount = 1;
+        for (int i = 1; i < arr.size(); i++) {
+            if (arr[i] == ans) {
+                eleCount++;
+            } else {
+                eleCount--;
+            }
+
+            if (eleCount == 0) {
+                eleCount = 1;
+                ans = arr[i];
+            }
+
+        }
+        return ans;
+    }
 };
